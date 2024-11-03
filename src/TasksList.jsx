@@ -1,9 +1,9 @@
 import './styles/main.css'
 import TaskStorageController from './TaskStorageController';
 import ZeroTaskMessage from './ZeroTaskMessage';
-import TaskController from './TaskListController';
+import TaskUnit from "./TaskUnit";
 
-function TaskList() {
+function TaskList({showAlert}) {
     const controller = new TaskStorageController;
     let taskListData = controller.getTaskList();
 
@@ -16,11 +16,7 @@ function TaskList() {
             <ZeroTaskMessage/>
         )
     } else {
-        const taskListResult = taskListData.map((task, index) => {
-            let taskUnit = new TaskController(task.title, task.bodyTask, index);
-            return(taskUnit.render());
-        });
-
+        const taskListResult = taskListData.map((task, index) =>  <TaskUnit showAlert={showAlert} title={task.title} body={task.bodyTask} index={index}/>);
         return (<div>{taskListResult}</div>)
     }
 }

@@ -1,14 +1,15 @@
 import editIcon from './assets/edit_button_icon.svg'
 import shareIcon from './assets/share_button_icon.svg'
 import EditTaskMenu from './EditTaskMenu';
+import ShareTaskMenu from './ShareTaskMenu';
 
-function TaskInteractButtons({index}){
+function TaskInteractButtons({showAlert, index}){
     function showEditMenu() {
-        console.log(index);
+        showAlert(<EditTaskMenu showAlert={showAlert} index={index}/>);
     }
 
     function showShareMenu() {
-        console.log(index);
+        showAlert(<ShareTaskMenu showAlert={showAlert}/>);
     }
 
     return(
