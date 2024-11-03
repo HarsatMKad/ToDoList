@@ -1,8 +1,23 @@
-# React + Vite
+## 🛠️ Технологии
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Список технологий, используемых в проекте:
+- **React** – JavaScript-библиотека для создания пользовательских интерфейсов.
+- **SASS** – препроцессор CSS для стилизации компонентов.
 
-Currently, two official plugins are available:
+## 📦 Установка и запуск
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Требования
+
+Для запуска проекта вам потребуется:
+- Node.js версии 14.x или выше.
+- npm или yarn.
+
+### Шаги
+
+1. Клонируйте репозиторий
+   ```bash
+   git clone https://github.com/HarsatMKad/Web_Lab2
+
+2. Запустите проект
+    ```bash
+    npm run dev
