@@ -17,8 +17,9 @@ function EditTaskMenu({showAlert, index}) {
         if (title != "" && body != "") {
             const controller = new TaskStorageController;
             controller.editTask(index, title, body);
+            showAlert();
+            location.reload();
         }
-        showAlert();
     }
 
     return (

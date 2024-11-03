@@ -8,7 +8,8 @@ function DelTaskAlert({showAlert, index}) {
     function delTask(){
         const taskController = new TaskStorageController;
         taskController.delTask(index);
-        showAlert(<></>);
+        showAlert();
+        location.reload();
     }
 
     return (

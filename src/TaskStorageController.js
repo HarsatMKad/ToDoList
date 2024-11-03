@@ -28,6 +28,14 @@ class TaskStorageController {
         let taskList = JSON.parse(localStorage.getItem('taskList'));
         return taskList;
     }
+
+    moveTask(dragIndex, hoverIndex) {
+        const taskList = this.getTaskList();
+        const draggedTask = taskList[dragIndex];
+        taskList.splice(dragIndex, 1);
+        taskList.splice(hoverIndex, 0, draggedTask);
+        localStorage.setItem('taskList', JSON.stringify(taskList));
+      }
 }
 
 export default TaskStorageController
