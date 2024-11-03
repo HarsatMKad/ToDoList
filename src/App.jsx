@@ -1,21 +1,21 @@
-import './styles/main.css'
-import Tasks_list from './tasks_list.jsx'
+import TaskCreateSection from "./TaskCreateSection"
+import TaskList from "./TasksList"
+import React, { useState } from "react";
+import SortableComponent from "./DNDTest";
+
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 function App() {
+  const [alert, showAlert] = useState();
 
   return (
     <>
-      <div id='alert'></div>
-
-      <div className='create_task_form'>
-        <div className='tasks_inputs'>
-          <input className='create_tasks_input' id='title_tasks_input' type="text" placeholder='Title...'/>
-          <input className='create_tasks_input' id='body_tasks_input' type="text" placeholder='About...'/>
-        </div>
-        <button className='add_button'>+</button>
-      </div>
-
-      <Tasks_list/>
+      {alert}
+      <TaskCreateSection />
+      <DndProvider backend={HTML5Backend}>
+      <TaskList showAlert={showAlert}/>
+      </DndProvider>
     </>
   )
 }
