@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './styles/main.css'
 import TaskStorageController from './TaskStorageController'
 import ZeroTaskMessage from './ZeroTaskMessage'
-import Card from './DNDTest'
 import TaskUnit from './TaskUnit'
 
 function TaskList({ showAlert }) {

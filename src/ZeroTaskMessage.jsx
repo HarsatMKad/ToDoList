@@ -1,4 +1,4 @@
-function ZeroTaskMessage() {
+export default function ZeroTaskMessage() {
     return (
         <>
             <div className='zero_task_message'>
@@ -9,5 +9,3 @@ function ZeroTaskMessage() {
         </>
     )
 }
-
-export default ZeroTaskMessage;

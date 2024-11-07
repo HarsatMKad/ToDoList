@@ -5,8 +5,7 @@ import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from './ItemTypes'
 
 export default function TaskUnit({index, moveCard, showAlert, title, body}) {    
-    let showKey = false;
-    const [interactButtons, showInteractButtons] = useState();
+    const [buttonsVisible, setButtonsVisible] = useState(false);
     const ref = useRef(null)
 
     const [{ isDragging }, drag] = useDrag(() => ({
@@ -25,7 +24,7 @@ export default function TaskUnit({index, moveCard, showAlert, title, body}) {
         }
         const dragIndex = item.index
         const hoverIndex = index
-  
+        
         if (dragIndex === hoverIndex) {
           return
         }
@@ -48,32 +47,22 @@ export default function TaskUnit({index, moveCard, showAlert, title, body}) {
       },
     }), [index, moveCard])
   
-    drag(drop(ref))
+    drag(drop(ref));
 
     return (
         <div ref={ref}>
             <div className='task'>
-                <div className='task_text_area' onClick={showButtons}>
+                <div className='task_text_area' onClick={() => setButtonsVisible(!buttonsVisible)}>
                     <div className='head_text_stile'>{title}</div>
                     <p className='sub_text_stile'>{body}</p>
                 </div>
                 <button id='delButton' className='del_button' onClick={openDelMenu}>X</button>
             </div>
-            {interactButtons}
+            {buttonsVisible && <TaskInteractButtons showAlert={showAlert} index={index}/>}
         </div>
     )
 
     function openDelMenu() {
         showAlert(<DelTaskAlert showAlert={showAlert} index={index}/>)
-    }
-
-    function showButtons() {
-        if(showKey){
-            showKey = true;
-            showInteractButtons();
-        } else {
-            showKey = false;
-            showInteractButtons(<TaskInteractButtons showAlert={showAlert} index={index}/>);
-        }
     }
 }
