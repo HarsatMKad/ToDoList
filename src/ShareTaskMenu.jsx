@@ -11,25 +11,25 @@ function ShareTaskMenu({showAlert}) {
     }
 
     return (
-        <div class="blur_background" onClick={closeAlert}>
-            <div class="share_box">
-                <button class="share_box_button">
+        <div className="blur_background" onClick={closeAlert}>
+            <div className="share_box">
+                <button className="share_box_button">
                     <img src={shareCopy} alt="" />
                 </button>
 
-                <button class="share_box_button">
+                <button className="share_box_button">
                     <img src={shareVK} alt="" />
                 </button>
 
-                <button class="share_box_button">
+                <button className="share_box_button">
                     <img src={shareTG} alt="" />
                 </button>
 
-                <button class="share_box_button">
+                <button className="share_box_button">
                     <img src={shareWhatsapp} alt="" />
                 </button>
 
-                <button class="share_box_button">
+                <button className="share_box_button">
                     <img src={shareFacebook} alt="" />
                 </button>
             </div>
