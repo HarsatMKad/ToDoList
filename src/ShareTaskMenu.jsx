@@ -4,7 +4,6 @@ import shareTG from "./assets/share_button_telegram.svg"
 import shareWhatsapp from "./assets/share_button_whatsapp.svg"
 import shareFacebook from "./assets/share_button_facebook.svg"
 
-
 function ShareTaskMenu({showAlert}) {
     function closeAlert(){
         showAlert();

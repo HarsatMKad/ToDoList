@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import TaskUnit from './TaskUnit';
 import ZeroTaskMessage from './ZeroTaskMessage';
-import * as actions from './actions/tasksActions';
+import { useSelector, useDispatch } from 'react-redux';
+import { moveTask } from './actions/tasksActions';
 
-function TaskList({ tasks, moveTask, showAlert }) {
+function TaskList({ showAlert }) {
+  const tasks = useSelector(state => state.tasks); 
+  const dispatch = useDispatch();
+
   const moveCard = (dragIndex, hoverIndex) => {
-    moveTask(dragIndex, hoverIndex);
+    dispatch(moveTask(dragIndex, hoverIndex));
   };
 
   if (tasks.length === 0) {
@@ -26,12 +29,4 @@ function TaskList({ tasks, moveTask, showAlert }) {
   }
 }
 
-const mapStateToProps = (state) => ({
-  tasks: state.tasks,
-});
-
-const mapDispatchToProps = {
-  moveTask: actions.moveTask,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
+export default TaskList;

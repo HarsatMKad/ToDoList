@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { connect } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 import { editTask } from './actions/tasksActions';
 
@@ -61,4 +60,4 @@ function EditTaskMenu({ showAlert, index }) {
   );
 }
 
-export default connect()(EditTaskMenu);
+export default EditTaskMenu;

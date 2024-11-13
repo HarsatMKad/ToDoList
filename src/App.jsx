@@ -12,15 +12,14 @@ function App() {
 
   return (
     <>
-    <Provider store={store}>
-    {alert}
-      <TaskCreateSection />
-      <DndProvider backend={HTML5Backend}>
-        <TaskList showAlert={setAlert}/>
-      </DndProvider>
-    </Provider>
+      <Provider store={store}>
+        {alert}
+        <TaskCreateSection />
+        <DndProvider backend={HTML5Backend}>
+          <TaskList showAlert={setAlert} />
+        </DndProvider>
+      </Provider>
     </>
-    
   );
 }
 
