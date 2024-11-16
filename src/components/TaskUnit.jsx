@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
-import TaskInteractButtons from './TaskInteractButtons';
-import DelTaskAlert from './DelTaskAlert';
-import { useDrag, useDrop } from 'react-dnd';
-import { ItemTypes } from './ItemTypes';
-import { connect } from 'react-redux';
-import * as actions from './actions/tasksActions';
+import React, { useState, useRef } from "react";
+import TaskInteractButtons from "./TaskInteractButtons";
+import DelTaskAlert from "./DelTaskAlert";
+import { useDrag, useDrop } from "react-dnd";
+import { ItemTypes } from "../scripts/ItemTypes";
+import { connect } from "react-redux";
+import * as actions from "../actions/tasksActions";
 
 function TaskUnit({ index, moveCard, showAlert, title, bodyTask }) {
   const [buttonsVisible, setButtonsVisible] = useState(false);
@@ -18,7 +18,7 @@ function TaskUnit({ index, moveCard, showAlert, title, bodyTask }) {
         isDragging: monitor.isDragging(),
       }),
     }),
-    [index],
+    [index]
   );
 
   const [, drop] = useDrop(
@@ -36,7 +36,8 @@ function TaskUnit({ index, moveCard, showAlert, title, bodyTask }) {
         }
 
         const hoverBoundingRect = ref.current.getBoundingClientRect();
-        const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+        const hoverMiddleY =
+          (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
         const clientOffset = monitor.getClientOffset();
         const hoverClientY = clientOffset.y - hoverBoundingRect.top;
 
@@ -52,25 +53,32 @@ function TaskUnit({ index, moveCard, showAlert, title, bodyTask }) {
         item.index = hoverIndex;
       },
     }),
-    [index, moveCard],
+    [index, moveCard]
   );
 
   drag(drop(ref));
 
   const openDelMenu = () => {
-    showAlert(<DelTaskAlert showAlert={showAlert} index={index}/>)
+    showAlert(<DelTaskAlert showAlert={showAlert} index={index} />);
   };
 
   return (
     <div ref={ref}>
       <div className="task">
-        <div className="task_text_area" onClick={() => setButtonsVisible(!buttonsVisible)}>
+        <div
+          className="task_text_area"
+          onClick={() => setButtonsVisible(!buttonsVisible)}
+        >
           <div className="head_text_stile">{title}</div>
           <p className="sub_text_stile">{bodyTask}</p>
         </div>
-        <button id="delButton" className="del_button" onClick={openDelMenu}>X</button>
+        <button id="delButton" className="del_button" onClick={openDelMenu}>
+          X
+        </button>
       </div>
-      {buttonsVisible && <TaskInteractButtons showAlert={showAlert} index={index} />}
+      {buttonsVisible && (
+        <TaskInteractButtons showAlert={showAlert} index={index} />
+      )}
     </div>
   );
 }

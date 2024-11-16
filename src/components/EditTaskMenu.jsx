@@ -1,13 +1,13 @@
-import React, { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { editTask } from './actions/tasksActions';
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editTask } from "../actions/tasksActions";
 
 function EditTaskMenu({ showAlert, index }) {
-  const dispatch = useDispatch(); 
-  const task = useSelector(state => state.tasks[index]); 
-  
-  const inputTitleRef = useRef(null); 
-  const inputBodyRef = useRef(null); 
+  const dispatch = useDispatch();
+  const task = useSelector((state) => state.tasks[index]);
+
+  const inputTitleRef = useRef(null);
+  const inputBodyRef = useRef(null);
 
   useEffect(() => {
     inputTitleRef.current.focus();
@@ -20,8 +20,8 @@ function EditTaskMenu({ showAlert, index }) {
   function handleEditTask() {
     const title = inputTitleRef.current.value.trim();
     const body = inputBodyRef.current.value.trim();
-    
-    if (title !== '' && body !== '') {
+
+    if (title !== "" && body !== "") {
       dispatch(editTask(index, title, body));
       showAlert();
     }
@@ -36,7 +36,7 @@ function EditTaskMenu({ showAlert, index }) {
           id="edit_input_title_task"
           type="text"
           placeholder="Title..."
-          defaultValue={task?.title || ''}
+          defaultValue={task?.title || ""}
         />
         <textarea
           ref={inputBodyRef}
@@ -44,14 +44,22 @@ function EditTaskMenu({ showAlert, index }) {
           id="edit_input_body_task"
           type="text"
           placeholder="About..."
-          defaultValue={task?.bodyTask || ''}
+          defaultValue={task?.bodyTask || ""}
         ></textarea>
 
         <div>
-          <button id="edit_button_cancel" className="edit_button" onClick={closeAlert}>
+          <button
+            id="edit_button_cancel"
+            className="edit_button"
+            onClick={closeAlert}
+          >
             Cancel
           </button>
-          <button id="edit_button_save" className="edit_button" onClick={handleEditTask}>
+          <button
+            id="edit_button_save"
+            className="edit_button"
+            onClick={handleEditTask}
+          >
             Save
           </button>
         </div>

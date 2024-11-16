@@ -1,11 +1,11 @@
-import React from 'react';
-import TaskUnit from './TaskUnit';
-import ZeroTaskMessage from './ZeroTaskMessage';
-import { useSelector, useDispatch } from 'react-redux';
-import { moveTask } from './actions/tasksActions';
+import React from "react";
+import TaskUnit from "./TaskUnit";
+import ZeroTaskMessage from "./ZeroTaskMessage";
+import { useSelector, useDispatch } from "react-redux";
+import { moveTask } from "../actions/tasksActions";
 
 function TaskList({ showAlert }) {
-  const tasks = useSelector(state => state.tasks); 
+  const tasks = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
 
   const moveCard = (dragIndex, hoverIndex) => {

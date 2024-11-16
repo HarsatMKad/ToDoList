@@ -1,11 +1,10 @@
-import TaskCreateSection from "./TaskCreateSection"
-import TaskList from "./TasksList"
+import TaskCreateSection from "./TaskCreateSection";
+import TaskList from "./TasksList";
 import React, { useState } from "react";
-import store from "./Store";
+import store from "../scripts/Store";
 import { Provider } from "react-redux";
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 function App() {
   const [alert, setAlert] = useState();

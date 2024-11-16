@@ -1,4 +1,4 @@
-import { ADD_TASK, EDIT_TASK, DELETE_TASK, MOVE_TASK } from './types';
+import { ADD_TASK, EDIT_TASK, DELETE_TASK, MOVE_TASK } from "./types";
 
 export const addTask = (title, body) => ({
   type: ADD_TASK,
